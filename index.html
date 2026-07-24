@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wolf Fitness — Gimnasio en Ciudad de Allende, N.L.</title>
+<meta name="description" content="Wolf Fitness: equipo completo, amplio espacio y precios accesibles en Ciudad de Allende, Nuevo León. Horario corrido de 7 A.M. a 10 P.M. Sin inscripción todo el año.">
+<link rel="icon" type="image/png" href="images/logo.png">
+<style>
+  :root {
+    --green: #76b900;
+    --green-dark: #5a8d00;
+    --bg: #000000;
+    --bg-alt: #0d0d0d;
+    --card: #121212;
+    --line: #2e2e2e;
+    --light: #f7f7f7;
+    --card-light: #ffffff;
+    --hairline: #cccccc;
+    --ink: #000000;
+    --mute-light: #757575;
+    --text: #ffffff;
+    --text-mute: rgba(255,255,255,0.72);
+    --mute: #8a8a8a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg);
+  }
+
+  img { max-width: 100%; display: block; }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- Navigation ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-decoration: none;
+  }
+
+  .nav-logo {
+    height: 38px;
+    width: auto;
+  }
+
+  .nav-brand span { color: var(--green); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+  }
+
+  .nav-links a:hover { color: var(--green); }
+
+  .nav-links a:focus-visible,
+  .btn:focus-visible,
+  .wa-fab:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 2px;
+  }
+
+  .nav-cta {
+    background: var(--green);
+    color: var(--ink) !important;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 2px;
+  }
+
+  .nav-cta:hover { background: var(--green-dark); color: var(--ink) !important; }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    margin: 5px 0;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    min-height: calc(100vh - 64px);
+    min-height: calc(100svh - 64px);
+    display: flex;
+    flex-direction: column;
+    background:
+      linear-gradient(100deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.72) 45%, rgba(0,0,0,0.35) 100%),
+      url("images/hero.jpg") center / cover no-repeat,
+      var(--bg);
+    color: var(--text);
+  }
+
+  .hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 96px;
+    padding-bottom: 64px;
+  }
+
+  .hero h1 {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 1px;
+    max-width: 680px;
+  }
+
+  .hero h1 span { color: var(--green); }
+
+  .hero p {
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--text-mute);
+    max-width: 560px;
+    margin-top: 16px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .hero-meta {
+    margin-top: 32px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+
+  /* ---------- Marquee ---------- */
+  .marquee {
+    background: var(--green);
+    overflow: hidden;
+    padding: 12px 0;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 22s linear infinite;
+  }
+
+  .marquee-group {
+    display: flex;
+    gap: 40px;
+    padding-right: 40px;
+    flex-shrink: 0;
+  }
+
+  .marquee-group span {
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.25;
+    padding: 11px 24px;
+    border-radius: 2px;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--green);
+    color: var(--ink);
+  }
+
+  .btn-primary:hover { background: var(--green-dark); }
+
+  .btn-outline-dark {
+    background: transparent;
+    border: 1px solid var(--text);
+    color: var(--text);
+    padding: 10px 23px;
+  }
+
+  .btn-outline-dark:hover { border-color: var(--green); color: var(--green); }
+
+  .btn-outline {
+    background: transparent;
+    border: 2px solid var(--green);
+    color: var(--text);
+    padding: 9px 22px;
+  }
+
+  .btn-outline:hover { background: var(--green); color: var(--ink); }
+
+  .section--light .btn-outline { color: var(--ink); }
+
+  /* ---------- Sections ---------- */
+  .section { padding: 64px 0; }
+
+  .section--alt { background: var(--bg-alt); }
+
+  .section--light {
+    background: var(--light);
+    color: var(--ink);
+  }
+
+  .section-title {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .section-sub {
+    font-size: 18px;
+    color: var(--mute);
+    max-width: 640px;
+    margin-top: 12px;
+  }
+
+  /* ---------- Benefits ---------- */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .benefit-card {
+    position: relative;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 32px 24px 24px;
+  }
+
+  .benefit-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background: var(--green);
+  }
+
+  .benefit-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .benefit-card p {
+    font-size: 15px;
+    color: var(--mute);
+    margin-top: 8px;
+  }
+
+  /* ---------- Facilities ---------- */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .gallery figure {
+    position: relative;
+    background: var(--card);
+    border-radius: 2px;
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+  }
+
+  .gallery figure::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background: var(--green);
+    z-index: 1;
+  }
+
+  .gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ---------- Pricing ---------- */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .price-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-light);
+    border: 1px solid var(--hairline);
+    border-radius: 2px;
+    padding: 32px;
+    text-align: center;
+  }
+
+  .price-card .btn { margin-top: auto; }
+
+  .price-card .plan {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mute-light);
+  }
+
+  .price-card .amount {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 16px 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .price-card .amount small {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--mute-light);
+  }
+
+  .plan-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+    font-size: 15px;
+    color: var(--mute-light);
+    margin: 0 0 24px;
+  }
+
+  .plan-features li {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+  }
+
+  .plan-features li::before {
+    content: "\2713";
+    color: var(--green-dark);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .price-card.featured .plan-features { color: var(--text-mute); }
+  .price-card.featured .plan-features li::before { color: var(--green); }
+  .plan-features strong { color: inherit; }
+
+  .price-card.featured {
+    background: var(--ink);
+    border: 2px solid var(--green);
+  }
+
+  .price-card.featured .plan { color: var(--green); }
+  .price-card.featured .amount { color: var(--text); }
+  .price-card.featured .amount small { color: var(--text-mute); }
+
+  .price-badge {
+    display: inline-block;
+    background: var(--green);
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+
+  .pricing-note {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .pricing-note span { color: var(--green-dark); }
+
+  /* ---------- Hours & Location ---------- */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .info-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 32px;
+  }
+
+  .info-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .schedule {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .schedule th,
+  .schedule td {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 16px;
+  }
+
+  .schedule th {
+    text-align: left;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .schedule td {
+    text-align: right;
+    color: var(--text-mute);
+  }
+
+  .schedule tr:last-child th,
+  .schedule tr:last-child td { border-bottom: none; }
+
+  .info-card p { color: var(--mute); margin-top: 8px; }
+
+  .info-card address {
+    font-style: normal;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 16px;
+    color: var(--text-mute);
+  }
+
+  .info-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .info-actions .btn { font-size: 16px; }
+
+  .map-embed {
+    margin-top: 24px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background: var(--bg-alt);
+  }
+
+  .map-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+    filter: grayscale(1) invert(0.92) contrast(0.9);
+  }
+
+  .map-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: var(--mute);
+    font-size: 14px;
+    text-align: center;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(118,185,0,0.08) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(118,185,0,0.08) 40px),
+      var(--bg-alt);
+  }
+
+  .map-placeholder strong { color: var(--text-mute); }
+
+  /* ---------- La Manada ---------- */
+  .manada {
+    background:
+      linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+      url("images/manada.jpg") center 22% / cover no-repeat,
+      var(--bg);
+    border-top: 1px solid var(--line);
+    color: var(--text);
+    padding: 96px 0;
+    text-align: center;
+  }
+
+  .manada .eyebrow {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+
+  .manada h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.25;
+    text-transform: uppercase;
+    margin-top: 16px;
+  }
+
+  .manada p {
+    color: var(--text-mute);
+    font-size: 18px;
+    max-width: 560px;
+    margin: 12px auto 0;
+  }
+
+  /* ---------- Final CTA ---------- */
+  .cta {
+    background:
+      radial-gradient(ellipse 60% 80% at 50% 100%, rgba(118,185,0,0.18), transparent),
+      var(--bg);
+    border-top: 1px solid var(--line);
+    color: var(--text);
+    padding: 96px 0;
+    text-align: center;
+  }
+
+  .cta-logo {
+    display: block;
+    width: 200px;
+    max-width: 55%;
+    height: auto;
+    margin: 0 auto 24px;
+    filter: drop-shadow(0 0 24px rgba(118,185,0,0.35));
+  }
+
+  .cta .wolf {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+
+  .cta h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.25;
+    text-transform: uppercase;
+    margin-top: 16px;
+  }
+
+  .cta p {
+    color: var(--text-mute);
+    font-size: 18px;
+    margin-top: 12px;
+  }
+
+  .cta .btn { margin-top: 32px; }
+
+  .cta-prices {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mute);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer {
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+    color: var(--text-mute);
+    padding: 64px 0 32px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 40px;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 16px;
+  }
+
+  .footer-brand span { color: var(--green); }
+
+  .footer-logo { height: 36px; width: auto; }
+
+  .footer-tagline {
+    font-size: 14px;
+    margin-top: 12px;
+    max-width: 260px;
+  }
+
+  .footer h4 {
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-col a {
+    color: var(--text-mute);
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  .footer-col a:hover { color: var(--green); }
+
+  .footer-col address {
+    font-style: normal;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .footer-col .hours {
+    font-size: 14px;
+    margin: 12px 0 16px;
+  }
+
+  .footer-col ul.footer-social {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    border-top: 1px solid var(--line);
+    margin-top: 48px;
+    padding-top: 24px;
+    font-size: 13px;
+    color: var(--mute);
+  }
+
+  /* ---------- WhatsApp FAB ---------- */
+  .wa-fab {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 200;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+  }
+
+  .wa-fab:hover { background: var(--green-dark); }
+
+  .wa-fab svg {
+    width: 28px;
+    height: 28px;
+    fill: var(--ink);
+  }
+
+  /* ---------- Motion preferences ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .marquee-track { animation: none; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1024px) {
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .container { padding: 0 16px; }
+    .section { padding: 48px 0; }
+
+    .nav-toggle { display: block; }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding: 8px 24px 24px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links li { width: 100%; }
+
+    .nav-links a {
+      display: block;
+      padding: 14px 0;
+      font-size: 16px;
+    }
+
+    .nav-cta { text-align: center; margin-top: 8px; }
+
+    .hero h1 { font-size: 36px; }
+    .hero p { font-size: 18px; }
+
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .price-card.featured { order: -1; }
+    .info-grid { grid-template-columns: 1fr; }
+    .map-embed { aspect-ratio: 4 / 3; }
+    .info-actions .btn { flex: 1 1 45%; }
+    .section-title { font-size: 28px; }
+    .cta h2 { font-size: 28px; }
+    .cta { padding: 64px 0; }
+    .manada { padding: 64px 0; }
+    .manada h2 { font-size: 28px; }
+    .wa-fab { right: 16px; bottom: 16px; }
+
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid .footer-col:first-child { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 480px) {
+    .benefits-grid { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+
+    .hero h1 { font-size: 32px; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .price-card .btn,
+    .cta .btn { width: 100%; }
+    .info-actions { flex-direction: column; align-items: stretch; }
+    .benefit-card { padding: 24px 20px 20px; }
+    .price-card { padding: 24px; }
+    .info-card { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== Navbar ===== -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="nav-brand" href="#inicio"><img class="nav-logo" src="images/logo.png" alt="">WOLF <span>FITNESS</span></a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="toggleMenu(this)">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#instalaciones">Instalaciones</a></li>
+      <li><a href="#precios">Precios</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+      <li><a class="nav-cta" href="https://wa.me/520000000000" target="_blank" rel="noopener">WhatsApp</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="inicio">
+  <div class="container hero-content">
+    <h1>ENTRENA <span>SIN EXCUSAS</span></h1>
+    <p>Equipo completo, amplio espacio y precios accesibles para alcanzar tu mejor versión.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://wa.me/520000000000" target="_blank" rel="noopener">ÚNETE A LA MANADA</a>
+      <a class="btn btn-outline-dark" href="#precios">VER PRECIOS</a>
+    </div>
+    <p class="hero-meta">7 A.M. – 10 P.M. &middot; Sin inscripción</p>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span>Sin inscripción</span><span>&middot;</span>
+        <span>Mensualidad $600</span><span>&middot;</span>
+        <span>7 A.M. – 10 P.M.</span><span>&middot;</span>
+        <span>Únete a la manada</span><span>&middot;</span>
+      </div>
+      <div class="marquee-group">
+        <span>Sin inscripción</span><span>&middot;</span>
+        <span>Mensualidad $600</span><span>&middot;</span>
+        <span>7 A.M. – 10 P.M.</span><span>&middot;</span>
+        <span>Únete a la manada</span><span>&middot;</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Benefits ===== -->
+<section class="section" id="beneficios">
+  <div class="container">
+    <h2 class="section-title">¿Por qué Wolf Fitness?</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <h3>Equipo completo</h3>
+        <p>Máquinas, peso libre y poleas para entrenar cada músculo.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>Amplio espacio</h3>
+        <p>Área abierta para entrenar cómodo, sin esperar aparatos.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>Horario corrido</h3>
+        <p>De 7 A.M. a 10 P.M., todos los días entrenas a tu ritmo.</p>
+      </div>
+      <div class="benefit-card">
+        <h3>Sin inscripción</h3>
+        <p>Llega, paga tu plan y empieza. Sin costos ocultos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Facilities ===== -->
+<section class="section section--alt" id="instalaciones">
+  <div class="container">
+    <h2 class="section-title">Todo lo que necesitas para entrenar</h2>
+    <p class="section-sub">Área de peso libre, máquinas, poleas y espacio funcional en un ambiente directo y sin complicaciones.</p>
+    <div class="gallery">
+      <figure><img src="images/gym-1.jpg" alt="Vista aérea del área de entrenamiento de Wolf Fitness" loading="lazy"></figure>
+      <figure><img src="images/gym-2.jpg" alt="Área de máquinas y peso libre" loading="lazy"></figure>
+      <figure><img src="images/gym-3.jpg" alt="El equipo de Wolf Fitness celebrando el aniversario del gimnasio" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Pricing ===== -->
+<section class="section section--light" id="precios">
+  <div class="container">
+    <h2 class="section-title">Precios</h2>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <p class="plan">Visita</p>
+        <p class="amount">$50 <small>MXN</small></p>
+        <ul class="plan-features">
+          <li>Acceso a todo el equipo</li>
+          <li>Sin compromiso</li>
+          <li>Paga solo el día que vienes</li>
+        </ul>
+        <a class="btn btn-outline" href="https://wa.me/520000000000" target="_blank" rel="noopener">EMPEZAR</a>
+      </div>
+      <div class="price-card featured">
+        <span class="price-badge">Más popular</span>
+        <p class="plan">Mensualidad</p>
+        <p class="amount">$600 <small>MXN</small></p>
+        <ul class="plan-features">
+          <li>Acceso a todo el equipo</li>
+          <li><strong>Sale a $20 al día</strong></li>
+          <li><strong>Ahorra $200</strong> vs. 4 semanas sueltas</li>
+          <li>Sin inscripción, sin contrato</li>
+        </ul>
+        <a class="btn btn-primary" href="https://wa.me/520000000000" target="_blank" rel="noopener">ÚNETE A LA MANADA</a>
+      </div>
+      <div class="price-card">
+        <p class="plan">Semana</p>
+        <p class="amount">$200 <small>MXN</small></p>
+        <ul class="plan-features">
+          <li>Acceso a todo el equipo</li>
+          <li>7 días completos</li>
+          <li>Sin contrato</li>
+        </ul>
+        <a class="btn btn-outline" href="https://wa.me/520000000000" target="_blank" rel="noopener">EMPEZAR</a>
+      </div>
+    </div>
+    <p class="pricing-note"><span>Sin costo de inscripción durante todo el año.</span></p>
+  </div>
+</section>
+
+<!-- ===== Hours & Location ===== -->
+<section class="section" id="ubicacion">
+  <div class="container">
+    <h2 class="section-title">Horario y ubicación</h2>
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Horario</h3>
+        <table class="schedule">
+          <tr><th>Lunes a Viernes</th><td>7:00 A.M. – 10:00 P.M.</td></tr>
+          <tr><th>Sábado</th><td>7:00 A.M. – 10:00 P.M.</td></tr>
+          <tr><th>Domingo</th><td>7:00 A.M. – 10:00 P.M.</td></tr>
+        </table>
+        <p>Horario corrido, sin cierres a mediodía.</p>
+      </div>
+      <div class="info-card">
+        <h3>Ubicación</h3>
+        <address>
+          Dr. Mier 404<br>
+          Valle de los Álamos, 67350<br>
+          Ciudad de Allende, Nuevo León
+        </address>
+        <div class="map-embed">
+          <iframe src="https://www.google.com/maps?q=Dr.+Mier+404,+Valle+de+los+Alamos,+67350+Ciudad+de+Allende,+N.L.&output=embed" loading="lazy" title="Mapa: Wolf Fitness, Dr. Mier 404, Ciudad de Allende" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="info-actions">
+          <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Dr.+Mier+404,+Valle+de+los+Alamos,+67350+Ciudad+de+Allende,+N.L." target="_blank" rel="noopener">ABRIR EN MAPS</a>
+          <a class="btn btn-outline" href="https://wa.me/520000000000" target="_blank" rel="noopener">MANDAR WHATSAPP</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== La Manada ===== -->
+<section class="manada">
+  <div class="container">
+    <p class="eyebrow">La Manada</p>
+    <h2>Más que un gimnasio, una manada</h2>
+    <p>Miembros, entrenadores y familias que entrenan y celebran juntos. Aquí nadie empieza solo.</p>
+  </div>
+</section>
+
+<!-- ===== Final CTA ===== -->
+<section class="cta">
+  <div class="container">
+    <img class="cta-logo" src="images/logo.png" alt="Mascota de Wolf Fitness: lobo musculoso en triángulo verde">
+    <p class="wolf">Wolf Fitness</p>
+    <h2>¿Listo para empezar?</h2>
+    <p>Visítanos hoy. No necesitas inscripción.</p>
+    <a class="btn btn-primary" href="https://wa.me/520000000000" target="_blank" rel="noopener">ÚNETE A LA MANADA</a>
+    <p class="cta-prices">Visita $50 &middot; Semana $200 &middot; Mensualidad $600</p>
+  </div>
+</section>
+
+<!-- ===== Marquee reprise ===== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-group">
+      <span>Sin inscripción</span><span>&middot;</span>
+      <span>Mensualidad $600</span><span>&middot;</span>
+      <span>7 A.M. – 10 P.M.</span><span>&middot;</span>
+      <span>Únete a la manada</span><span>&middot;</span>
+    </div>
+    <div class="marquee-group">
+      <span>Sin inscripción</span><span>&middot;</span>
+      <span>Mensualidad $600</span><span>&middot;</span>
+      <span>7 A.M. – 10 P.M.</span><span>&middot;</span>
+      <span>Únete a la manada</span><span>&middot;</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <p class="footer-brand"><img class="footer-logo" src="images/logo.png" alt="">WOLF <span>FITNESS</span></p>
+        <p class="footer-tagline">Entrena sin excusas en Ciudad de Allende, Nuevo León.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Enlaces</h4>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#instalaciones">Instalaciones</a></li>
+          <li><a href="#precios">Precios</a></li>
+          <li><a href="#ubicacion">Ubicación</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <address>
+          Dr. Mier 404, Valle de los Álamos<br>
+          67350, Ciudad de Allende, N.L.
+        </address>
+        <p class="hours">Horario corrido: 7 A.M. – 10 P.M.</p>
+        <ul class="footer-social">
+          <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="https://wa.me/520000000000" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Dr.+Mier+404,+Valle+de+los+Alamos,+67350+Ciudad+de+Allende,+N.L." target="_blank" rel="noopener">Google Maps</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Wolf Fitness. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== WhatsApp flotante ===== -->
+<a class="wa-fab" href="https://wa.me/520000000000" target="_blank" rel="noopener" aria-label="Mandar WhatsApp a Wolf Fitness">
+  <svg viewBox="0 0 448 512" role="img" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+</a>
+
+<script>
+  function toggleMenu(btn) {
+    var links = document.getElementById('navLinks');
+    var open = links.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+  }
+  document.querySelectorAll('#navLinks a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      document.getElementById('navLinks').classList.remove('open');
+      document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+</body>
+</html>
