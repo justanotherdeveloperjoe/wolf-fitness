@@ -12,7 +12,10 @@ wolf-fitness/
 ├── css/
 │   └── styles.css    # All styles (design tokens in :root)
 ├── js/
-│   └── main.js       # Site interactions (mobile nav)
+│   ├── main.js       # Site interactions (mobile nav, Vanta init)
+│   └── vendor/
+│       ├── three.min.js      # three.js r134 (Vanta dependency)
+│       └── vanta.net.min.js  # Vanta NET effect
 └── images/           # Optimized photos + logo (transparent PNG)
 ```
 
@@ -35,3 +38,4 @@ npx serve .
 
 - Section prices also appear in the two marquee tickers and the CTA trust line — update all when prices change.
 - The map iframe has a CSS filter for dark mode (`.map-embed iframe` in `styles.css`); remove it for a normal colored map.
+- The final CTA section (`#cta`) gets an animated Vanta NET background (green network on black). `main.js` lazy-loads the vendor scripts only on viewports wider than 768px and skips them entirely for `prefers-reduced-motion` users — the CSS radial glow is the fallback in both cases. Effect tuning lives in the `VANTA.NET({...})` call in `main.js`.

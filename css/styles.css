@@ -588,6 +588,8 @@
 
   /* ---------- Final CTA ---------- */
   .cta {
+    position: relative;
+    overflow: hidden;
     background:
       radial-gradient(ellipse 60% 80% at 50% 100%, rgba(118,185,0,0.18), transparent),
       var(--bg);
@@ -595,6 +597,12 @@
     color: var(--text);
     padding: 96px 0;
     text-align: center;
+  }
+
+  /* Content above the Vanta canvas when active */
+  .cta .container {
+    position: relative;
+    z-index: 1;
   }
 
   .cta-logo {
