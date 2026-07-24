@@ -758,10 +758,64 @@
     fill: var(--ink);
   }
 
+  /* ---------- Scroll reveal ---------- */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-grid > [data-reveal]:nth-child(1) { transition-delay: 0ms; }
+  .reveal-grid > [data-reveal]:nth-child(2) { transition-delay: 90ms; }
+  .reveal-grid > [data-reveal]:nth-child(3) { transition-delay: 180ms; }
+  .reveal-grid > [data-reveal]:nth-child(4) { transition-delay: 270ms; }
+
+  /* ---------- Card hover ---------- */
+  .benefit-card,
+  .price-card,
+  .info-card {
+    transition: transform 0.25s ease, border-color 0.25s ease;
+  }
+
+  .benefit-card:hover,
+  .info-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--green-dark);
+  }
+
+  .price-card:hover { transform: translateY(-4px); }
+  .price-card.featured:hover { border-color: var(--green); }
+
+  /* ---------- Button glow ---------- */
+  .btn-primary {
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 18px rgba(118,185,0,0.4);
+  }
+
   /* ---------- Motion preferences ---------- */
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .marquee-track { animation: none; }
+
+    [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .benefit-card,
+    .price-card,
+    .info-card {
+      transition: none;
+    }
   }
 
   /* ---------- Responsive ---------- */
