@@ -2,6 +2,8 @@
 
 Single-page landing site for **Wolf Fitness**, a gym in Ciudad de Allende, Nuevo León, México.
 
+**Live site:** https://justanotherdeveloperjoe.github.io/wolf-fitness/
+
 Dark green/black design based on the NVIDIA DESIGN.md system, adapted to the gym's brand. Static site — no build step, no dependencies.
 
 ## Structure
@@ -30,7 +32,7 @@ npx serve .
 ## Pending before delivery
 
 - [ ] **WhatsApp number** — replace every `520000000000` in `index.html` with the real number (format: `52` + 10 digits).
-- [ ] **Facebook URL** — footer links to generic `facebook.com`; swap in the gym's page.
+- [ ] **Facebook URL** — footer links to generic `facebook.com`; swap in the gym's page (Instagram is already linked: @wolffitnesskys).
 - [ ] **Weekend hours** — the schedule table assumes 7 A.M.–10 P.M. all 7 days; confirm Sat/Sun with the client.
 - [ ] **Map pin** — verify the Google Maps embed lands on Dr. Mier 404; switch to exact coordinates if off.
 
